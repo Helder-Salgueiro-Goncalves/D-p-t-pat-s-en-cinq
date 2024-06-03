@@ -31,7 +31,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="details.css">
+    <link rel="stylesheet" href="A_propos.css">
     <link rel="stylesheet" href="../includes//header/header.css">
     <link rel="stylesheet" href="../includes/footer/footer.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

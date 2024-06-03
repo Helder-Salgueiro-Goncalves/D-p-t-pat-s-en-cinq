@@ -18,8 +18,8 @@
 
     <label class="logo"><a href="./../backoffice/connexion.php"><img class="logo-navbar" src="../assets/logo.jpg" alt="connexion"></a></label>
     <ul>
-      <li><a class="active" href="./../index.php"><i class="fa-solid fa-house"></i>ACCUEIL</a></li>
-      <li><a class="active" href="../details/details.php"><i class="fa-sharp fa-solid fa-circle-info"></i>A PROPOS</a></li>
+      <li><a class="active" href="./../accueil.php"><i class="fa-solid fa-house"></i>ACCUEIL</a></li>
+      <li><a class="active" href="../A_propos/A_propos.php"><i class="fa-sharp fa-solid fa-circle-info"></i>A PROPOS</a></li>
       <li><a class="active" href="../galerie/galerie.php"><i class="fa-solid fa-image"></i>GALERIE</a></li>
       <li><a class="active" href="../livre_d'or/livre.php"><i class="fa-solid fa-book"></i>LIVRE D'OR</a></li>
       <li><a class="active" href="../prestation/prestation.php"><i class="fa-solid fa-bone"></i>PRESTATIONS</a></li>

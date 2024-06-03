@@ -1,0 +1,138 @@
+body{
+margin: 0;
+}
+
+.livre-titre{
+    display: flex;
+    justify-content: center;
+    font-size: 500%;
+    color: #FFD600;
+    padding: 3%;
+    text-align: center;
+}
+.comment-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#openmodal{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 1% 2% 1% 2%;
+    background-color: #528DFF;
+    color: white;
+    font-size: 120%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+dialog{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 30%;
+    border: solid 2px #FFD600;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+dialog::backdrop{
+    background-color: rgba(211, 211, 211, 0.589);
+}
+dialog h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+dialog h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+.input-modal{
+    display: flex;
+    justify-content: center;
+    padding: 5% 0;
+}
+.input-modal input{
+    width: 40%;
+    border: solid 2px lightgray;
+    border-radius: 5px;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+.input-modal textarea{
+    width: 40%;
+    border: solid 2px lightgrey;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+#closemodal{
+    background-color: red;
+    color: white;
+    padding:1%;
+    border-radius: 10px;
+    font-size: 120%;
+    margin: 0 2% 2%;
+
+}
+#closemodal:hover{
+    background-color: #7C7C7C;
+}
+.modal-input{
+    background-color: rgb(85, 85, 248);
+    color: white;
+    padding:1%;
+    border-radius: 10px;
+    font-size: 120%;
+    margin: 0 2% 2%;
+}
+.modal_input:hover{
+    background-color: #7C7C7C;
+}
+.comment-container{
+    background-color: #D9D9D9;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    padding: 1%;
+    width: 20%;
+    text-align: center;
+    margin: 5%;
+}
+.comment-container h3{
+    padding: 1%;
+}
+.comment-container p{
+    padding-top: 2%;
+}
+.note-container{
+    display: flex;
+    padding: 2%;
+}
+.note-container i{
+    color: #FFD600;
+    padding-top: 2%;
+}
+.comment-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+@media screen and (max-width:765px){
+    .comment-container{
+        width: 30%;
+    }
+    
+}
+@media screen and (max-width:425px){
+    .comment-container{
+        width: 100%;
+        margin: 10%;
+    }
+    
+}

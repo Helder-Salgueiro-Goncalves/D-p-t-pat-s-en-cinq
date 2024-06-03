@@ -1,0 +1,61 @@
+body{
+    padding: 0%;
+}
+.galerie-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.galerie-description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5%;
+}
+.galerie-img{
+    width: 200px;
+    border-radius: 10px;
+    display: block;
+    color: transparent;
+    background-image: url(../assets/dog.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0%;
+    padding: 30% 15% 30% 15%;
+    font-size: 150%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.galerie-img:hover{
+    filter: brightness(50%);
+    color: white;
+    
+    
+}
+.nom-chien{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.galerie-container{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding:5% 0% 5% 0%;
+}
+@media screen  and (max-width: 768px){
+    .galerie-container{
+        width: 50%;
+    }
+    
+}
+@media screen and (max-width: 425px){
+    .galerie-container{
+        width: 100%;
+    }
+    
+}

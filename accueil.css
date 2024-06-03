@@ -1,0 +1,351 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+/*/style de l'image de fond de l'accueil/*/
+.img-presentation{
+    background-image: url(./assets/backdog.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+@media screen and(max-width:765px){
+  .img-presentation{
+    width: 120%;
+  }
+  
+}
+/*/style de la,partie 'qui sui-je/*/
+.txt-presentation{
+    opacity: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20%  25% 25% 25%;
+    font-size: 600%;
+    font-weight: 300%;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2)
+}
+.about{
+    margin: 5% 1% 1% 4%;
+
+}
+.about img{
+    width: 100%;
+}
+.about h2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 200%;
+    padding: 2%;
+}
+.about p{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2%;
+    font-size: 120%;
+}
+.about a{
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-color: #528DFF;
+    border: solid black 1px ;
+    border-radius: 5px;
+    margin: 5% 25% 0% 25%;
+    padding: 2%;
+}
+.accueil-prestation{
+    float: right;
+    font-size: 100%;
+}
+.s2{
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width:765px ){
+  .about{
+    display: none;
+  }
+}
+/*/style de la partie prestation de l'accueil/*/
+.home-prestation-mere h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    font-size: 250%;
+}
+.home-prestation-fille{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2%;
+}
+.home-prestation-container{
+    max-width: 40%;
+}
+.home-prestation-container p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:2% 5% 10% 5%;
+}
+.home-prestation-container h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+}
+.home-prestation-mere a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-color: #528DFF;
+    border: solid black 1px ;
+    border-radius: 5px;
+    margin: 2% 45% 0% 45%;
+    padding: 0.5%;
+}
+@media screen and (max-width:765px ){
+  .home-prestation-mere a{
+    margin: 0 35%;
+  }
+}
+@media screen and (max-width:765px ){
+  .home-prestation-fille{
+    flex-direction: column;
+    align-items: center;
+    text-align: justify; 
+  }
+  .home-prestation-container{
+    max-width: 100%;
+  }
+}
+
+/*/style du carroussel d'image/*/
+#slider {
+  position: relative;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+#slider img{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+
+#precedent,
+#suivant {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  font-weight: 200%;
+  position: absolute;
+  font-size: 100px;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(220, 220, 220, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#precedent {
+  left: 0;
+}
+
+#suivant {
+  right: 0;
+}
+
+#slider:hover #precedent,
+#slider:hover #suivant {
+  opacity: 1;
+}
+
+/*/style de la partie methode/*/
+.methode{
+  margin: 0% 10% 5% 10%;
+  padding-bottom: 5%;
+  border-bottom: solid 1px #535353;
+}
+.methode h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 250%;
+}
+.methode-container{
+  margin: 3% 0% 3% 0%;
+}
+.methode-container h3{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2%;
+  font-size: 150%;
+  text-align: center;
+}
+.methode-container p{
+  display: flex;
+  text-align: justify;
+}
+.methode-btn{
+  background-color: #528DFF;
+  color:white;
+  padding: 1% 2% 1% 2%;
+  border: solid 1px black;
+  border-radius: 10px;
+  font-size: 120%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0% 42% 0% 42%;
+}
+@media screen and (max-width:765px ){
+  .methode-btn{
+    margin: 0 20%;
+  }
+}
+/*/style de la video/*/
+
+.video{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.video-container{
+  margin: 0% 10% 5% 10%;
+  padding-bottom: 5%;
+  border-bottom: solid 1px #535353;
+}
+/*/style de la partie NOS PARTERNAIRE*/
+.partenaire h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 250%;
+  margin-bottom: 2%;
+}
+.partenaire-box{
+  width: 35%;
+  margin: 2% 5% 2% 5%;
+
+}
+.partenaire-box p{
+  background-color:#D9D9D9;
+  padding: 1%;
+  text-align:center;
+  border-radius: 10px;
+}
+.partenaire-box h3{
+  color: red;
+  padding-bottom: 3%;
+}
+.partenaire-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.partenaire{
+  padding-bottom: 3%;
+  margin: 0% 10% 5% 10%;
+  border-bottom: solid 1px #535353;
+}
+@media screen and (max-width:765px ){
+  .partenaire-box{
+    width: 100%;
+  }
+  .partenaire-box p{
+    margin-bottom: 5%;
+  }
+  .partenaire-box h3{
+    text-align: center;
+  }
+
+}
+/*/style de la partie COMMENTAIRES/*/
+.commentaire h1{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 250%;
+  padding-bottom: 1%;
+}
+.commentaire-box p{
+  background-color:#D9D9D9;
+  width: 50%;
+  padding: 1%;
+  margin: 2% 0% 2% 0%;
+  border-radius: 10px;
+  text-align: center;
+}
+.commentaire-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0% 2% 0%;
+}
+.commentaire-note{
+  color: #FFD707;
+  font-size: 150%;
+}
+.commentaire{
+  padding-bottom: 3%;
+  margin: 0% 10% 5% 10%;
+  border-bottom: solid 1px #535353;
+}
+/*/style de la partie LOCALISATION/*/
+.localisation h1{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 250%;
+  margin-bottom: 2%;
+}
+.localisation-container h3{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2%;
+  padding: 0% 5% 0% 5%;
+  font-size: 150%;
+}
+.localisation-maps{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
+}
+@media screen and (max-width:765px ){
+  iframe{
+    width: 300px;
+    height: 300px;
+  }
+
+  #slider img{
+    width: 65%;
+  }
+  #precedent{
+    width: 65%;
+  }
+  #suivant{
+    width: 65%;
+  }
+}
+
+/*/ BdFh&g3ncn /*/

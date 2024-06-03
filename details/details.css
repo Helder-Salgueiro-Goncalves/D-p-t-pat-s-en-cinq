@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.menu-img{
+    background-image: url(../assets/difelice.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 21%;
+    font-size: 300%;
+    color: white;
+}
+.details-container h2{
+display: flex;
+justify-content: flex-start;
+text-align: center;
+font-size: 150%;
+margin: 1% 70% 1% 5%;
+}
+.details-container p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2% 5% 2% 5%;
+    font-size: 150%;
+}
+.details-container h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2% 5% 0% 5%;
+    font-size: 150%;
+}
+@media (max-width : 900px) {
+    .details-container h2{
+        justify-content: center;
+        margin: 3% 0% 3% 0%;
+    }
+    
+}

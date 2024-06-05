@@ -19,7 +19,7 @@
     <a class="btn btn-primary me-md-2" href="update_details.php">Les informations</a>
 
 
-    <a href="../index.php" class="btn btn-danger">Déconnexion</a>
+    <a href="../accueil.php" class="btn btn-danger">Déconnexion</a>
 
 </body>
 

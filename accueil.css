@@ -59,6 +59,7 @@ body{
     border-radius: 5px;
     margin: 5% 25% 0% 25%;
     padding: 2%;
+    align-items: center;
 }
 .accueil-prestation{
     float: right;
@@ -81,20 +82,20 @@ body{
     padding-bottom: 2%;
     font-size: 250%;
 }
-.home-prestation-fille{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 2%;
+.home-prestation-fille {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0% 2% 0% 2%;
 }
-.home-prestation-container{
-    max-width: 40%;
+.home-prestation-container {
+  max-width: 40%;
+  padding: 2% 5% 2% 5%;
 }
-.home-prestation-container p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:2% 5% 10% 5%;
+.home-prestation-container p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .home-prestation-container h2{
     display: flex;
@@ -130,9 +131,41 @@ body{
   }
 }
 
+/*/style bouton/*/
+.button-36 {
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-36:hover {
+  box-shadow: rgb(80, 63, 205) 0 2px 30px;
+  transition-duration: 1s;
+}
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 0 2.6rem;
+  }
+}
+
 /*/style du carroussel d'image/*/
 #slider {
-  position: relative;
   margin: auto;
   display: flex;
   align-items: center;
@@ -154,20 +187,12 @@ body{
   transition: opacity 0.3s ease;
   opacity: 0;
   font-weight: 200%;
-  position: absolute;
   font-size: 100px;
   color: rgba(0, 0, 0, 0.8);
   background-color: rgba(220, 220, 220, 0.8);
   padding: 10px;
   border-radius: 10px;
-}
-
-#precedent {
-  left: 0;
-}
-
-#suivant {
-  right: 0;
+  margin: 0px 50px ;
 }
 
 #slider:hover #precedent,
@@ -200,24 +225,6 @@ body{
 .methode-container p{
   display: flex;
   text-align: justify;
-}
-.methode-btn{
-  background-color: #528DFF;
-  color:white;
-  padding: 1% 2% 1% 2%;
-  border: solid 1px black;
-  border-radius: 10px;
-  font-size: 120%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 0% 42% 0% 42%;
-}
-@media screen and (max-width:765px ){
-  .methode-btn{
-    margin: 0 20%;
-  }
 }
 /*/style de la video/*/
 
@@ -260,10 +267,11 @@ body{
   justify-content: center;
   flex-wrap: wrap;
 }
-.partenaire{
+.partenaire {
   padding-bottom: 3%;
-  margin: 0% 10% 5% 10%;
   border-bottom: solid 1px #535353;
+  display: flex;
+  flex-direction: column;
 }
 @media screen and (max-width:765px ){
   .partenaire-box{
@@ -275,6 +283,16 @@ body{
   .partenaire-box h3{
     text-align: center;
   }
+
+}
+
+.bouton-partenaire-commentaire{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  margin-right: auto;
+  margin-left: auto;
 
 }
 /*/style de la partie COMMENTAIRES/*/
@@ -304,10 +322,11 @@ body{
   color: #FFD707;
   font-size: 150%;
 }
-.commentaire{
+.commentaire {
   padding-bottom: 3%;
-  margin: 0% 10% 5% 10%;
   border-bottom: solid 1px #535353;
+  display: flex;
+  flex-direction: column;
 }
 /*/style de la partie LOCALISATION/*/
 .localisation h1{
@@ -331,6 +350,7 @@ body{
   align-items: center;
   margin-bottom: 5%;
 }
+
 @media screen and (max-width:765px ){
   iframe{
     width: 300px;

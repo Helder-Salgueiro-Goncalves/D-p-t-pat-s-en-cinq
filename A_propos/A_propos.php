@@ -77,7 +77,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
             <h2>MES ASSISTANTS CANINS : </h2>
             <?php foreach ($listeChien as $elementDeLaListeChien) { ?>
 
-                <h3><?= $elementDeLaListeChien['assistant_canin_nom'] ?></h3>
+                <h3><img src="../assets/point.png" width="16px" height="16px"> <?= $elementDeLaListeChien['assistant_canin_nom'] ?></h3>
                 <p><?= $elementDeLaListeChien['assistant_canin_libelle'] ?></p>
             <?php } ?>
         </div>
@@ -88,7 +88,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
             <h2>MES FORMATIONS </h2>
             <?php foreach ($listeFormation as $elementDeLaListeFormation) { ?>
 
-                <p><?= $elementDeLaListeFormation['formation_libelle'] ?></p>
+                <p> <?= $elementDeLaListeFormation['formation_libelle'] ?></p>
 
             <?php } ?>
         </div>

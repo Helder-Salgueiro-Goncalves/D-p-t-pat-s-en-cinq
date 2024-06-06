@@ -108,20 +108,29 @@ $PartenaireAccueilDescription4 = $PartenaireAccueilDescription4['part_descriptif
 
 
 // Récupération du prenom de la partie 'COMMENTAIRE' de l'accueil
-$prenomCommentaireAccueil = $connexion->prepare('SELECT auteur_prenom FROM auteur ORDER BY auteur_prenom ASC LIMIT 1');
+$prenomCommentaireAccueil = $connexion->prepare('SELECT auteur_prenom FROM auteur ORDER BY auteur_id DESC LIMIT 1');
 $prenomCommentaireAccueil->execute();
 $commentaireAccueilPrenom = $prenomCommentaireAccueil->fetch();
 $commentaireAccueilPrenom = $commentaireAccueilPrenom['auteur_prenom'];
 // Récupération du nom de la partie 'COMMENTAIRE' de l'accueil
-$nomCommentaireAccueil = $connexion->prepare('SELECT auteur_nom FROM auteur ORDER BY auteur_nom ASC LIMIT 1');
+$nomCommentaireAccueil = $connexion->prepare('SELECT auteur_nom FROM auteur ORDER BY auteur_id DESC LIMIT 1');
 $nomCommentaireAccueil->execute();
 $commentaireAccueilNom = $nomCommentaireAccueil->fetch();
 $commentaireAccueilNom = $commentaireAccueilNom['auteur_nom'];
 // Récupération de la description de la partie 'COMMENTAIRE' de l'accueil
-$descriptionCommentaireAccueil = $connexion->prepare('SELECT livre_contenu FROM livre_dor ORDER BY livre_id ASC LIMIT 1');
+$descriptionCommentaireAccueil = $connexion->prepare('SELECT auteur_contenu FROM auteur ORDER BY auteur_id DESC LIMIT 1');
 $descriptionCommentaireAccueil->execute();
 $commentaireAccueildescription = $descriptionCommentaireAccueil->fetch();
-$commentaireAccueildescription = $commentaireAccueildescription['livre_contenu'];
+$commentaireAccueildescription = $commentaireAccueildescription['auteur_contenu'];
+
+// Récuprération de la note 'COMMENTAIRE' pour afficher des étoiles
+$noteCommentaireAccueil = $connexion->prepare('SELECT auteur_note From auteur ORDER BY auteur_id DESC LIMIT 1');
+$noteCommentaireAccueil->execute();
+$commentaireNoteAccueil = $noteCommentaireAccueil -> fetch();
+$commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
+
+
+
 ?>
 
 
@@ -129,6 +138,7 @@ $commentaireAccueildescription = $commentaireAccueildescription['livre_contenu']
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/logo.ico"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="accueil.css">
@@ -155,7 +165,7 @@ $commentaireAccueildescription = $commentaireAccueildescription['livre_contenu']
                 <img src="./assets/difelice.jpg">
                 <h2>QUI SUIS-JE ?</h2>
                 <p>De ma naissance jusqu'à mon âge actuel, j'ai vécu avec toute sorte d'animaux. J'ai toujours aimé leur compagnie en particulier celles des chiens. J'avais une grande complicité avec nos chiens mais aussi ceux de mon entourage. Passionnée depuis toujours, le travail que j'ai choisi associ plusieurs points très importants pour moi. Avoir un travail passionnant, évolutif et pouvoir aider les gens et les chiens. Pour pouvoir aider au mieux, j'ai souhaité améliorer mes connaissances en effectuant une formation de 8 mois pour obtenir le Brevet Professionnel d'Educateur Canin le seul diplôme reconnu d'état d'actuellement.</p>
-                <a class="button-36" href="./details/details.php">en savoir plus</a>
+                <a class="button-36" href="./A_propos/A_propos.php">en savoir plus</a>
             </aside>
 
             <div class="home-prestation-mere">
@@ -239,9 +249,14 @@ $commentaireAccueildescription = $commentaireAccueildescription['livre_contenu']
                     <h3><?= $commentaireAccueilPrenom ?> <?= $commentaireAccueilNom ?></h3>
                     <p><?= $commentaireAccueildescription ?></p>
                     <div class="commentaire-note">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <?php
+                        $i = 0;
+                        do {
+                            $i++;
+                            echo "<i class='fa-solid fa-star'></i>";
+                        } while ($commentaireNoteAccueil > $i);
+
+                        ?>
                     </div>
                 </div>
                 <a href="./livre_d'or/livre.php" class="button-36 bouton-partenaire-commentaire">Voir plus de commentaires</a>

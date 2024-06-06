@@ -23,10 +23,10 @@
     </div>
     <div class="raccourci-footer">
         <div class="raccourci-container">
-            <a href=".././index.php">Accueil</a>
+            <a href="./../accueil.php">Accueil</a>
         </div>
         <div class="raccourci-container">
-            <a href="../details/details.php">A propos</a>
+            <a href="../A_propos/A_propos.php">A propos</a>
         </div>
         <div class="raccourci-container">
             <a href="../galerie/galerie.php">Galerie</a>
@@ -43,7 +43,7 @@
             <p>©</p>
         </div>
         <div class="info-container">
-            <p>2023</p>
+            <p>2024</p>
         </div>
     </div>
 </footer>

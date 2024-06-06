@@ -29,6 +29,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.ico"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="A_propos.css">
@@ -44,9 +45,9 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
 <body>
     <section class="s1">
         <div class="menu-img">
-            <h1>
+            <p class="txt-presentation">
                 AURORE DI FELICE
-            </h1>
+            </p>
         </div>
     </section>
     <section class="s2">
@@ -54,43 +55,43 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
         <div class="details-container">
             <h2>QUI SUIS-JE ?</h2>
             <?php foreach ($liste as $elementDeLaListe) { ?>
-                <p><?= $elementDeLaListe['a_propos_profil'] ?></p>
-        </div>
+                            <p><?= $elementDeLaListe['a_propos_profil'] ?></p>
+                    </div>
+
+                    <div class="details-container">
+                        <h2>CE QUE JE FAIS :</h2>
+                        <p><?= $elementDeLaListe['a_propos_profession'] ?></p>
+                    </div>
+
+                    <div class="details-container">
+                        <h2>NOTRE HISTOIRE :</h2>
+                        <p><?= $elementDeLaListe['a_propos_histoire'] ?></p>
+                    </div>
+        <?php } ?>
 
         <div class="details-container">
-            <h2>CE QUE JE FAIS :</h2>
-            <p><?= $elementDeLaListe['a_propos_profession'] ?></p>
+            <h2>MES ASSISTANTS :</h2>
+            <p><?= $libelle_assistant ?></p>
         </div>
+        <div class="details-container">
+            <h2>MES ASSISTANTS CANINS : </h2>
+            <?php foreach ($listeChien as $elementDeLaListeChien) { ?>
+
+                <h3><img src="../assets/point.png" width="16px" height="16px"> <?= $elementDeLaListeChien['assistant_canin_nom'] ?></h3>
+                <p><?= $elementDeLaListeChien['assistant_canin_libelle'] ?></p>
+            <?php } ?>
+        </div>
+
+
 
         <div class="details-container">
-            <h2>NOTRE HISTOIRE :</h2>
-            <p><?= $elementDeLaListe['a_propos_histoire'] ?></p>
+            <h2>MES FORMATIONS </h2>
+            <?php foreach ($listeFormation as $elementDeLaListeFormation) { ?>
+
+                <p> <?= $elementDeLaListeFormation['formation_libelle'] ?></p>
+
+            <?php } ?>
         </div>
-    <?php } ?>
-
-    <div class="details-container">
-        <h2>MES ASSISTANTS :</h2>
-        <p><?= $libelle_assistant ?></p>
-    </div>
-    <div class="details-container">
-        <h2>MES ASSISTANTS CANINS : </h2>
-        <?php foreach ($listeChien as $elementDeLaListeChien) { ?>
-
-            <h3><?= $elementDeLaListeChien['assistant_canin_nom'] ?></h3>
-            <p><?= $elementDeLaListeChien['assistant_canin_libelle'] ?></p>
-        <?php } ?>
-    </div>
-
-
-
-    <div class="details-container">
-        <h2>MES FORMATIONS </h2>
-        <?php foreach ($listeFormation as $elementDeLaListeFormation) { ?>
-
-            <p><?= $elementDeLaListeFormation['formation_libelle'] ?></p>
-
-        <?php } ?>
-    </div>
     </section>
 
 </body>

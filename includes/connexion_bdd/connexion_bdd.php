@@ -9,9 +9,3 @@ try {
 } catch (Exception $e) {
     echo "Erreur de connexion.";
 }
-
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "math_index";

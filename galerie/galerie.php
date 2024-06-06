@@ -15,6 +15,7 @@ $liste = $query->fetchAll();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.ico"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,16 +30,15 @@ $liste = $query->fetchAll();
 </header>
 <body>
     <div class="galerie-description">
-        <h1>Bienvenue dans la galerie, vous retrouverez ici des photos de toutous que nous nous occupons  </h1>
+        <h1>Bienvenue dans la galerie, vous retrouverez ici des photos des toutous dont nous nous occupons  </h1>
     </div>
     <div class="galerie-box">
     <?php foreach ($liste as $elementDeLaListe){?>
         <div class="galerie-container">
-            <a href="#" class="galerie-img" style="background-image:url(../assets/<?= $elementDeLaListe["photo_url"]?>);"></a>
             <h2 class="nom-chien"><?= $elementDeLaListe["photo_libelle"]?></h2>
-
-    </div>
-<?php } ?>
+            <a href="#" class="galerie-img" style="background-image:url(../assets/<?= $elementDeLaListe["photo_url"]?>);"></a>
+        </div>
+    <?php } ?>
 
 </body>
 <footer>

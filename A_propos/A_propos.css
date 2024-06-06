@@ -4,39 +4,55 @@ body{
 }
 .menu-img{
     background-image: url(../assets/difelice.jpg);
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 21%;
-    font-size: 300%;
-    color: white;
 }
 .details-container h2{
-display: flex;
-justify-content: flex-start;
-text-align: center;
-font-size: 150%;
-margin: 1% 70% 1% 5%;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    font-size: 200%;
+    margin: 5% 5% 0% 5%;
+}
+.txt-presentation{
+    opacity: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8% 25% 35% 25%;
+    font-size: 600%;
+    font-weight: 300%;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2)
 }
 .details-container p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2% 5% 2% 5%;
-    font-size: 150%;
+    padding: 2% 0% 2% 8%;
+    font-size: 1.2vw;
+    line-height: 27px;
 }
 .details-container h3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2% 5% 0% 5%;
+    padding: 2% 5% 0% 6%;
     font-size: 150%;
+    align-items: center;
+    display: flex;
 }
+
+.s2{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and(max-width:765px){
+    .menu-img{
+      width: 120%;
+    }
+}
+
 @media (max-width : 900px) {
     .details-container h2{
         justify-content: center;

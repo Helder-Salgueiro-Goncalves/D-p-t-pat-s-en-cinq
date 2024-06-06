@@ -14,13 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $prenom_auteur = $_POST['auteur_prenom'];
     $mail_auteur = $_POST['auteur_mail'];
     $contenu_auteur = $_POST['auteur_contenu'];
+    $auteur_note = $_POST['auteur_note'];
 
-    $stmt = $connexion->prepare("INSERT INTO auteur (auteur_nom, auteur_prenom, auteur_mail, auteur_contenu) 
-                                VALUES (:nom, :prenom, :mail, :contenu)");
+    $stmt = $connexion->prepare("INSERT INTO auteur (auteur_nom, auteur_prenom, auteur_mail, auteur_contenu, auteur_note) 
+                                VALUES (:nom, :prenom, :mail, :contenu, :note)");
     $stmt->bindParam(':nom', $nom_auteur);
     $stmt->bindParam(':prenom', $prenom_auteur);
     $stmt->bindParam(':mail', $mail_auteur);
     $stmt->bindParam(':contenu', $contenu_auteur);
+    $stmt->bindParam(':note', $auteur_note);
 
     if ($stmt->execute()) {
         $success_message = "La message a été ajoutée avec succès.";
@@ -44,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.ico"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="livre.css">
@@ -63,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="comment-button">
 
         <div>
-            <button id="openmodal">Laisser un commentaire</button>
+            <button id="openmodal" class="button-36">Laisser un commentaire</button>
         </div>
         <dialog id="modal">
             <form method="post">
@@ -80,9 +83,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="input-modal">
                     <input type="text" placeholder="Votre adresse mail" name="auteur_mail">
                 </div>
+                <h2>Une note sur 5 : </h2>
+                <div class="input-modal">
+                    <select name="auteur_note" id="note" width="150px" required>
+                        <option value="" <?php if(!isset($auteur_note) || $auteur_note == "") echo "selected";?>>Votre note</option>
+                        <option value="1" <?php if(isset($auteur_note) && $auteur_note == 1) echo "selected";?>>1 / 5</option>
+                        <option value="2" <?php if(isset($auteur_note) && $auteur_note == 2) echo "selected";?>>2 / 5</option>
+                        <option value="3" <?php if(isset($auteur_note) && $auteur_note == 3) echo "selected";?>>3 / 5</option>
+                        <option value="4" <?php if(isset($auteur_note) && $auteur_note == 4) echo "selected";?>>4 / 5</option>
+                        <option value="5" <?php if(isset($auteur_note) && $auteur_note == 5) echo "selected";?>>5 / 5</option>
+                    </select>
+                </div>
                 <h2>Commentaire : </h2>
                 <div class="input-modal">
-                    <textarea name="auteur_contenu" class="input-modal" cols="30" rows="10" placeholder="Votre avis"></textarea>
+                    <textarea name="auteur_contenu" class="input-modal" cols="30" rows="10" placeholder="Donnez nous votre avis"></textarea>
                 </div>
 
                 <div class="submit-modal">
@@ -116,7 +130,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="comment-container">
                     <h2 class="comment-name"><?= $elementDeLaListe['auteur_prenom'] ?> <?= $elementDeLaListe['auteur_nom'] ?></h2>
                     <div class="note-container">
-                        <h3 class="comment-note">Note : <?= $elementDeLaListe['auteur_note'] ?> / 5</h3>
+                        <h3 class="comment-note">
+                            <?php
+                                $i = 0;
+                                do {
+                                    $i++;
+                                    echo "<i class='fa-solid fa-star'></i>";
+                                } while ($elementDeLaListe['auteur_note'] > $i);
+                            ?>
+                        </h3>
                     </div>
                     <p class="comment-text"><?= $elementDeLaListe['auteur_contenu'] ?></p>
                 </div>

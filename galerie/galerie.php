@@ -30,16 +30,15 @@ $liste = $query->fetchAll();
 </header>
 <body>
     <div class="galerie-description">
-        <h1>Bienvenue dans la galerie, vous retrouverez ici des photos de toutous que nous nous occupons  </h1>
+        <h1>Bienvenue dans la galerie, vous retrouverez ici des photos des toutous dont nous nous occupons  </h1>
     </div>
     <div class="galerie-box">
     <?php foreach ($liste as $elementDeLaListe){?>
         <div class="galerie-container">
-            <a href="#" class="galerie-img" style="background-image:url(../assets/<?= $elementDeLaListe["photo_url"]?>);"></a>
             <h2 class="nom-chien"><?= $elementDeLaListe["photo_libelle"]?></h2>
-
-    </div>
-<?php } ?>
+            <a href="#" class="galerie-img" style="background-image:url(../assets/<?= $elementDeLaListe["photo_url"]?>);"></a>
+        </div>
+    <?php } ?>
 
 </body>
 <footer>

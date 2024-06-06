@@ -200,7 +200,7 @@ $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
 
             <div id="precedent" onclick="ChangeSlide(-1)">◄</div>
 
-            <img src="assets/dog.jpg" alt="./assets/dog2.jpg" id="slide">
+            <img src="assets/dog.jpg" alt="./assets/dog.jpg" id="slide" width="auto" height="612px">
             
             <div id="suivant" onclick="ChangeSlide(1)">►</div>
             

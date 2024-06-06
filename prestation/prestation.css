@@ -4,13 +4,13 @@ margin: 0;
 .prestation-menu{
     display: flex;
     justify-content: center;
-    padding: 5% 10% 5% 10%;
+    padding: 5% 10% 0% 10%;
     font-size: 150%;
     text-align: center;
 }
 .prestation-container{
     width: 35% ;
-    margin: 5%;
+    margin: 3%;
     background-color:#D9D9D9 ;
     padding-bottom: 2%;
     border-radius: 10px;
@@ -26,7 +26,6 @@ margin: 0;
 }
 .prestation-container p{
     margin: 0% 5% 5% 5%;
-    text-align: justify;
     font-size: 150%;
 }
 .prestation-container h3{

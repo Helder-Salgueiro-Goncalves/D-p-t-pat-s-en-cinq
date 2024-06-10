@@ -23,7 +23,7 @@ $liste = $query->fetchAll();
     <link rel="stylesheet" href="../includes/footer/footer.css"> 
     <script src="prestation.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestation</title>
+    <title>PATTE Z'EN CINQ</title>
 </head>
 <header>
 <?php require '../includes/header2/header.php'?>

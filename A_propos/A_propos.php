@@ -36,7 +36,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
     <link rel="stylesheet" href="../includes//header/header.css">
     <link rel="stylesheet" href="../includes/footer/footer.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PATTE Z'EN CINQ</title>
 </head>
 <header>
     <?php require '../includes/header2/header.php' ?>

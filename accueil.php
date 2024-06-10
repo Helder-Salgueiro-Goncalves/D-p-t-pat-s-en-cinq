@@ -108,23 +108,23 @@ $PartenaireAccueilDescription4 = $PartenaireAccueilDescription4['part_descriptif
 
 
 // Récupération du prenom de la partie 'COMMENTAIRE' de l'accueil
-$prenomCommentaireAccueil = $connexion->prepare('SELECT auteur_prenom FROM auteur ORDER BY auteur_id DESC LIMIT 1');
+$prenomCommentaireAccueil = $connexion->prepare('SELECT auteur_prenom FROM livre_dor ORDER BY livre_id DESC LIMIT 1');
 $prenomCommentaireAccueil->execute();
 $commentaireAccueilPrenom = $prenomCommentaireAccueil->fetch();
 $commentaireAccueilPrenom = $commentaireAccueilPrenom['auteur_prenom'];
 // Récupération du nom de la partie 'COMMENTAIRE' de l'accueil
-$nomCommentaireAccueil = $connexion->prepare('SELECT auteur_nom FROM auteur ORDER BY auteur_id DESC LIMIT 1');
+$nomCommentaireAccueil = $connexion->prepare('SELECT auteur_nom FROM livre_dor ORDER BY livre_id DESC LIMIT 1');
 $nomCommentaireAccueil->execute();
 $commentaireAccueilNom = $nomCommentaireAccueil->fetch();
 $commentaireAccueilNom = $commentaireAccueilNom['auteur_nom'];
 // Récupération de la description de la partie 'COMMENTAIRE' de l'accueil
-$descriptionCommentaireAccueil = $connexion->prepare('SELECT auteur_contenu FROM auteur ORDER BY auteur_id DESC LIMIT 1');
+$descriptionCommentaireAccueil = $connexion->prepare('SELECT livre_contenu FROM livre_dor ORDER BY livre_id DESC LIMIT 1');
 $descriptionCommentaireAccueil->execute();
 $commentaireAccueildescription = $descriptionCommentaireAccueil->fetch();
-$commentaireAccueildescription = $commentaireAccueildescription['auteur_contenu'];
+$commentaireAccueildescription = $commentaireAccueildescription['livre_contenu'];
 
 // Récuprération de la note 'COMMENTAIRE' pour afficher des étoiles
-$noteCommentaireAccueil = $connexion->prepare('SELECT auteur_note From auteur ORDER BY auteur_id DESC LIMIT 1');
+$noteCommentaireAccueil = $connexion->prepare('SELECT auteur_note From livre_dor ORDER BY livre_id DESC LIMIT 1');
 $noteCommentaireAccueil->execute();
 $commentaireNoteAccueil = $noteCommentaireAccueil -> fetch();
 $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
@@ -250,12 +250,11 @@ $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
                     <p><?= $commentaireAccueildescription ?></p>
                     <div class="commentaire-note">
                         <?php
-                        $i = 0;
-                        do {
-                            $i++;
-                            echo "<i class='fa-solid fa-star'></i>";
-                        } while ($commentaireNoteAccueil > $i);
-
+                            $i = 0;
+                            do {
+                                $i++;
+                                echo "<i class='fa-solid fa-star'></i>";
+                            } while ($commentaireNoteAccueil > $i);
                         ?>
                     </div>
                 </div>

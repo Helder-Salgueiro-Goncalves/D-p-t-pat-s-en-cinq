@@ -1,9 +1,7 @@
 <?php
 require '../includes/connexion_bdd/connexion_bdd.php';
 
-$nombre = 1;
-
-$query = $connexion->prepare("SELECT * FROM auteur");
+$query = $connexion->prepare("SELECT * FROM livre_dor");
 $query->execute();
 
 $liste = $query->fetchAll();
@@ -13,11 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom_auteur = $_POST['auteur_nom'];
     $prenom_auteur = $_POST['auteur_prenom'];
     $mail_auteur = $_POST['auteur_mail'];
-    $contenu_auteur = $_POST['auteur_contenu'];
+    $contenu_auteur = $_POST['livre_contenu'];
     $auteur_note = $_POST['auteur_note'];
 
-    $stmt = $connexion->prepare("INSERT INTO auteur (auteur_nom, auteur_prenom, auteur_mail, auteur_contenu, auteur_note) 
-                                VALUES (:nom, :prenom, :mail, :contenu, :note)");
+    $stmt = $connexion->prepare("INSERT INTO livre_dor (auteur_nom, auteur_prenom, auteur_mail, livre_contenu, auteur_note, livre_date_publication) 
+                                VALUES (:nom, :prenom, :mail, :contenu, :note, NOW())");
     $stmt->bindParam(':nom', $nom_auteur);
     $stmt->bindParam(':prenom', $prenom_auteur);
     $stmt->bindParam(':mail', $mail_auteur);
@@ -25,23 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':note', $auteur_note);
 
     if ($stmt->execute()) {
-        $success_message = "La message a été ajoutée avec succès.";
+        $success_message = "Le message a été ajouté avec succès.";
+        header("Location: livre.php"); // Redirige vers la même page
+        exit;
     } else {
         $error_message = "Erreur lors de l'ajout du message.";
-    }
-
-    if ($stmt->execute()) {
-        $success_message = "La message a été ajoutée avec succès.";
-    } else {
-        $error_message = "Erreur lors de l'ajout du message.";
+        header("Location: livre.php"); // Redirige vers la même page
+        exit;
     }
 }
 
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../includes/footer/footer.css">
     <script src="livre.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livre d'or</title>
+    <title>PATTE Z'EN CINQ</title>
 </head>
 <header>
     <?php require '../includes/header2/header.php' ?>
@@ -96,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <h2>Commentaire : </h2>
                 <div class="input-modal">
-                    <textarea name="auteur_contenu" class="input-modal" cols="30" rows="10" placeholder="Donnez nous votre avis"></textarea>
+                    <textarea name="livre_contenu" class="input-modal" cols="30" rows="10" placeholder="Donnez nous votre avis"></textarea>
                 </div>
 
                 <div class="submit-modal">
@@ -140,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             ?>
                         </h3>
                     </div>
-                    <p class="comment-text"><?= $elementDeLaListe['auteur_contenu'] ?></p>
+                    <p class="comment-text"><?= $elementDeLaListe['livre_contenu'] ?></p>
                 </div>
             <?php } ?>
 

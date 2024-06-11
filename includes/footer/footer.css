@@ -46,3 +46,8 @@ footer{
 .info-container{
     padding: 1% 1% 3% 1% ;
 }
+@media (max-width: 1174px){
+    footer{
+        font-size: 100%;
+    }
+}

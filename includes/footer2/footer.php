@@ -23,7 +23,7 @@
     </div>
     <div class="raccourci-footer">
         <div class="raccourci-container">
-            <a href="./../accueil.php">Accueil</a>
+            <a href="./../index.php">Accueil</a>
         </div>
         <div class="raccourci-container">
             <a href="../A_propos/A_propos.php">A propos</a>

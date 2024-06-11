@@ -6,6 +6,7 @@
   }
   body{
     font-family: Arial;
+    overflow-x: hidden;
   }
   nav{
     height: 80px;
@@ -37,7 +38,6 @@
   nav ul li{
     display: inline-block;
     line-height: 80px;
-    margin: 0 5px;
   }
   nav ul li a{
     color: black;
@@ -74,7 +74,7 @@
       font-size: 16px;
     }
   }
-  @media (max-width: 858px){
+  @media (max-width: 1174px){
     .checkbtn{
       display: block;
       color: black;

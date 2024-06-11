@@ -154,12 +154,12 @@ $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
 </header>
 
 <body>
-    <section>
+    <section class="image-principale">
         <div class="img-presentation">
             <p style="font-family: Arial;" class="txt-presentation">PATTE Z'EN CINQ</p>
         </div>
     </section>
-    <section>
+    <section class="image-principale">
         <div class="s2">
             <aside class="about">
                 <img src="./assets/difelice.jpg">

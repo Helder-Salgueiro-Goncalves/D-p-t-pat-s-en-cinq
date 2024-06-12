@@ -23,7 +23,7 @@ $liste = $query->fetchAll();
     <link rel="stylesheet" href="../includes/footer/footer.css"> 
     <link rel="stylesheet" href="galerie.css">
     <script src="accueil.js"></script>
-    <title>galerie</title>
+    <title>PATTE Z'EN CINQ</title>
 </head>
 <header>
     <?php require '../includes/header2/header.php'?>

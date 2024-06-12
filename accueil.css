@@ -95,7 +95,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
 }
 .home-prestation-mere a{
     display: flex;
@@ -148,7 +148,8 @@ body{
   overflow-x: hidden;
 }
 #slider img{
-  width: 30%;
+  width: 350px;
+  height: 400px;
   display: flex;
   justify-content: center;
   border-radius: 10px;
@@ -159,12 +160,14 @@ body{
   cursor: pointer;
   transition: opacity 0.3s ease;
   opacity: 0;
-  font-size: 100px;
+  font-size: 5vw;
   color: rgba(0, 0, 0, 0.8);
   background-color: rgba(220, 220, 220, 0.8);
-  padding: 10px;
   border-radius: 10px;
-  margin: 0px 50px ;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 0px 20px;
 }
 
 #slider:hover #precedent,
@@ -196,7 +199,6 @@ body{
 }
 .methode-container p{
   display: flex;
-  text-align: justify;
 }
 /*/style de la video/*/
 
@@ -222,7 +224,6 @@ body{
 .partenaire-box{
   width: 35%;
   margin: 2% 5% 2% 5%;
-
 }
 .partenaire-box p {
   background-color: #D9D9D9;
@@ -253,7 +254,6 @@ body{
   width: 20%;
   margin-right: auto;
   margin-left: auto;
-
 }
 /*/style de la partie COMMENTAIRES/*/
 .commentaire h1{
@@ -316,6 +316,12 @@ body{
     padding: 0 2.6rem;
   }
 }
+@media screen and (max-width:1024px ){
+  #slider #precedent,
+  #slider #suivant {
+    opacity: 1;
+  }
+}
 
 @media screen and (max-width:765px ){
   .home-prestation-mere a{
@@ -324,7 +330,6 @@ body{
   .home-prestation-fille{
     flex-direction: column;
     align-items: center;
-    text-align: justify; 
   }
   .home-prestation-container{
     max-width: 100%;
@@ -349,13 +354,27 @@ body{
     height: 300px;
   }
   #slider img{
-    width: 65%;
-  }
-  #precedent{
-    width: 65%;
-  }
-  #suivant{
-    width: 65%;
+    width: 225px;
+    height: 250px;
   }
 }
+
+@media screen and (max-width:450px ){
+  #slider img{
+    width: 175px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width:650px ){
+  .bouton-partenaire-commentaire {
+    width: 35%;
+  }
+  .home-prestation-container p {
+    margin-bottom: 10px;
+}
+}
+
+
+
 /*/ BdFh&g3ncn /*/

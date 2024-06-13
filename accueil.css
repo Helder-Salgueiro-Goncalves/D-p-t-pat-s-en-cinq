@@ -2,13 +2,13 @@ body{
     padding: 0;
     margin: 0;
     font-family: Arial;
+    overflow-x: hidden;
 }
 /*/style de l'image de fond de l'accueil/*/
 .img-presentation{
   background-image: url(./assets/backdog.jpg);
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  justify-content: center;
 }
 
 /*/style de la,partie 'qui sui-je/*/
@@ -19,9 +19,8 @@ body{
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 8% 25% 35% 25%;
-  font-size: 600%;
-  font-weight: 300%;
+  padding: 1% 25% 31% 25%;
+  font-size: 6vw;
   text-shadow: 6px 6px 0px rgba(0,0,0,0.2)
 }
 .image-principale{
@@ -356,6 +355,12 @@ body{
   #slider img{
     width: 225px;
     height: 250px;
+  }
+}
+
+@media screen and (max-width:320px ){
+  body{
+    width: 320px;
   }
 }
 

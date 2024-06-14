@@ -1,162 +1,192 @@
-body{
+body {
     margin: 0;
-    }
-    .livre-titre{
-        display: flex;
-        justify-content: center;
-        font-size: 500%;
-        color: #FFD600;
-        padding: 3%;
-        text-align: center;
-    }
-    .comment-button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #openmodal{
-        background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
-        border-radius: 8px;
-        border-style: none;
-        box-sizing: border-box;
-        color: #FFFFFF;
-        cursor: pointer;
-        flex-shrink: 0;
-        font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        height: 4rem;
-        padding: 0 1.6rem;
-        text-align: center;
-        text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-        transition: all .5s;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-    }  
-    #openmodal:hover {
-        box-shadow: rgb(80, 63, 205) 0 2px 30px;
-        transition-duration: 1s;
-    }
-    
-    dialog{
-        background-color: white;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.livre-titre {
+    display: flex;
+    justify-content: center;
+    font-size: 500%;
+    color: #FFD600;
+    padding: 3%;
+    text-align: center;
+}
+
+.comment-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#openmodal {
+    background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    height: 4rem;
+    padding: 0 1.6rem;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .5s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#openmodal:hover {
+    box-shadow: rgb(80, 63, 205) 0 2px 30px;
+    transition-duration: 1s;
+}
+
+dialog {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 30%;
+    border: solid 2px #FFD600;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 57vh;
+}
+
+dialog::backdrop {
+    background-color: rgba(211, 211, 211, 0.589);
+}
+
+dialog h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+}
+
+.input-modal {
+    display: flex;
+    justify-content: center;
+    padding: 0% 0% 5% 0%;
+}
+
+.input-modal input {
+    width: 40%; 
+    border: solid 2px lightgray;
+    border-radius: 5px;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    color: grey;
+}
+
+.input-modal select {
+    width: 45%;
+    border: solid 2px lightgray;
+    border-radius: 5px;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    color: grey;
+}
+
+.input-modal textarea {
+    width: 40%;
+    border: solid 2px lightgrey;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#closemodal {
+    background-color: red;
+    color: white;
+    padding: 1%;
+    border-radius: 10px;
+    font-size: 120%;
+    margin: 0 2% 1%;
+}
+
+#closemodal:hover {
+    background-color: #7C7C7C;    
+    cursor: pointer;
+
+}
+
+.modal-input {
+    background-color: rgb(85, 85, 248);
+    color: white;
+    padding: 1%;
+    border-radius: 10px;
+    font-size: 120%;
+    margin: 0 2% 2%;
+}
+
+.modal_input:hover {
+    background-color: #7C7C7C;
+}
+
+.modal-input:hover{
+    cursor: pointer;
+}
+
+.comment-container {
+    background-color: #D9D9D9;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    padding: 1%;
+    width: 20%;
+    text-align: center;
+    margin: 5%;
+}
+
+.comment-container h3 {
+    padding: 1%;
+}
+
+.comment-container p {
+    padding-top: 2%;
+}
+
+.note-container {
+    display: flex;
+    padding: 2%;
+}
+
+.note-container i {
+    color: #FFD600;
+    padding-top: 2%;
+}
+
+.comment-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 765px) {
+    .comment-container {
         width: 30%;
-        border: solid 2px #FFD600;
-        border-radius: 10px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        text-align: center;
     }
-    dialog::backdrop{
-        background-color: rgba(211, 211, 211, 0.589);
+    dialog {
+        width: 35vh;
+        height: 94vh;
     }
-    dialog h2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .input-modal textarea {
+        height: 82px;
     }
-    dialog h1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1%;
+}
+
+@media screen and (max-width: 425px) {
+    .comment-container {
+        width: 100%;
+        margin: 10%;
     }
-    .input-modal{
-        display: flex;
-        justify-content: center;
-        padding: 5% 0;
-    }
-    .input-modal input{
-        width: 40%;
-        border: solid 2px lightgray;
-        border-radius: 5px;
-        padding: 2%;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-        color: grey;
-    
-    }
-    .input-modal select{
-        width: 45%;
-        border: solid 2px lightgray;
-        border-radius: 5px;
-        padding: 2%;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-        color: grey;
-    }
-    
-    .input-modal textarea{
-        width: 40%;
-        border: solid 2px lightgrey;
-        padding: 2%;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    
-    }
-    
-    #closemodal{
-        background-color: red;
-        color: white;
-        padding:1%;
-        border-radius: 10px;
-        font-size: 120%;
-        margin: 0 2% 1%;
-    
-    }
-    #closemodal:hover{
-        background-color: #7C7C7C;
-    }
-    .modal-input{
-        background-color: rgb(85, 85, 248);
-        color: white;
-        padding:1%;
-        border-radius: 10px;
-        font-size: 120%;
-        margin: 0 2% 2%;
-    }
-    .modal_input:hover{
-        background-color: #7C7C7C;
-    }
-    .comment-container{
-        background-color: #D9D9D9;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-        border-radius: 10px;
-        padding: 1%;
-        width: 20%;
-        text-align: center;
-        margin: 5%;
-    }
-    .comment-container h3{
-        padding: 1%;
-    }
-    .comment-container p{
-        padding-top: 2%;
-    }
-    .note-container{
-        display: flex;
-        padding: 2%;
-    }
-    .note-container i{
-        color: #FFD600;
-        padding-top: 2%;
-    }
-    .comment-box{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    @media screen and (max-width:765px){
-        .comment-container{
-            width: 30%;
-        }
-        
-    }
-    @media screen and (max-width:425px){
-        .comment-container{
-            width: 100%;
-            margin: 10%;
-        }
-        
-    }
+}

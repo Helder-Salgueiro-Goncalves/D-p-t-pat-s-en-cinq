@@ -2,7 +2,7 @@
  require '../includes/connexion_bdd/connexion_bdd.php';
 
 
- $query = $connexion->prepare("SELECT * FROM livre_dor JOIN auteur ON livre_dor.livre_id = auteur.auteur_id;");
+ $query = $connexion->prepare("SELECT * FROM livre_dor;");
 $query->execute();
 
 $liste = $query->fetchAll();
@@ -47,7 +47,7 @@ if (isset($_POST['suppression'])) {
 			<tr>
 				<td><?= $element['auteur_prenom'] ?></td>
                 <td><?= $element['livre_contenu'] ?></td>
-				<td><?= $element['livre_note'] ?></td>
+				<td><?= $element['auteur_note'] ?></td>
                 <td>
                     <form action="#" method="POST" name="suppression">
                         <input type="hidden" name="suppression[id]" value="<?= $element['livre_id']?>">

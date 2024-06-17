@@ -64,7 +64,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
                     </div>
 
                     <div class="details-container">
-                        <h2>NOTRE HISTOIRE :</h2>
+                        <h2>RIKA NOTRE DOULOUREUSE HISTOIRE !</h2>
                         <p><?= $elementDeLaListe['a_propos_histoire'] ?></p>
                     </div>
         <?php } ?>

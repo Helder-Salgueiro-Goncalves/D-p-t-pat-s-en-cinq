@@ -40,7 +40,7 @@ $liste = $query->fetchAll();
                     <div class="prestation-container">
                         <h1><?= $elementDeLaListe["prestation_libelle"]?> </h1>
                         <p><?= $elementDeLaListe["prestation_contenu"]?> </p>
-                        <h3><?= $elementDeLaListe["prestation_prix"]?> € </h3>
+                        <h3>Prix de la prestation : <?= $elementDeLaListe["prestation_prix"]?> € </h3>
                     </div>
                     <?php $nombre = $nombre + 1 ?>
                 <?php

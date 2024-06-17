@@ -30,6 +30,7 @@ margin: 0;
 .prestation-container h3{
     padding-left: 5%;
     font-size: 150%;
+    text-align: center;
 }
 .prestation-box{
     display: flex;

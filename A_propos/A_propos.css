@@ -14,16 +14,16 @@ body{
     font-size: 200%;
     margin: 5% 5% 0% 5%;
 }
-.txt-presentation{
+.txt-presentation {
     opacity: 100%;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 1% 25% 31% 25%;
-    font-size: 6vw;
-    text-shadow: 6px 6px 0px rgba(0,0,0,0.2)
+    padding: 1% 52% 24% 0%;
+    font-size: 8vw;
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 .details-container p{
     padding: 2% 0% 2% 8%;

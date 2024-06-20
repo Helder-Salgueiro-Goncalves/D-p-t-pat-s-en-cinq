@@ -2,6 +2,14 @@ body{
     margin: 0;
     padding: 0;
 }
+
+.regroupement_forma_presta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
 .regroupement_backlog{
     text-align: center;
 }
@@ -80,6 +88,10 @@ tbody td{
     align-items: center;
   }
 
+  .regroupement_presentation_back, h1{
+    text-align: center;
+  }
+
   .regroupement_office{
     margin-top: 30px;
   }
@@ -96,6 +108,12 @@ tbody td{
         align-items: center;
         justify-content: center;
         margin-top: 9vh;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1030px){
+    .regroupement_page {
         flex-direction: column;
     }
 }

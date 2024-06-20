@@ -3,9 +3,9 @@
     margin: 0;
     text-decoration: none;
     list-style: none;
+    font-family: "News Cycle", sans-serif;
   }
   body{
-    font-family: Arial;
     overflow-x: hidden;
   }
   nav{
@@ -22,11 +22,6 @@
   }
   label img{
     height: 100%;
-  }
-  .logo-navbar{
-    width: 150px;
-    height: 150px;
-    border-radius: 60%;
   }
   .logo-navbar:hover{
     background: transparent;
@@ -107,6 +102,6 @@
 @media screen and (max-width:765px ){
   .logo-navbar{
     height: 100%;
-    width: 25%;
+    width: 32%;
   }
 }

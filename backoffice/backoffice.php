@@ -26,10 +26,14 @@
             <h2>Vous pouvez administrer ici les différentes partie du site PatteZen5</h2>
         </div>
         <div class="regroupement_page">
-            <a class="button-36" href="view_formation.php">Les Formations</a>
-            <a class="button-36" href="view_prestation.php">Les prestations</a>
-            <a class="button-36" href="view_livre_dor.php">Le livre d'or</a>
-            <a class="button-36" href="view_galerie.php">La galerie de photo</a>
+            <span class="regroupement_forma_presta">            
+                <a class="button-36" href="view_formation.php">Les Formations</a>
+                <a class="button-36" href="view_prestation.php">Les prestations</a>
+            </span>
+            <span class="regroupement_forma_presta"> 
+                <a class="button-36" href="view_livre_dor.php">Le livre d'or</a>
+                <a class="button-36" href="view_galerie.php">La galerie de photo</a>
+            </span>
             <a class="button-36" href="update_details.php">Les informations</a>
 
             <a href="deconnection.php" class="btn btn-danger">Se déconnecter</a>

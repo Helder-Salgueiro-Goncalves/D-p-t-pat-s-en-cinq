@@ -1,4 +1,4 @@
-<?php
+    <?php
 require './includes/connexion_bdd/connexion_bdd.php';
 
 // Récupération du titre1 de la partie 'PRESTATION' de l'accueil
@@ -156,7 +156,7 @@ $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
 <body>
     <section class="image-principale">
         <div class="img-presentation">
-            <p style="font-family: Arial;" class="txt-presentation">PATTE Z'EN CINQ</p>
+            <p class="txt-presentation">PATTE Z'EN CINQ</p>
         </div>
     </section>
     <section class="image-principale">

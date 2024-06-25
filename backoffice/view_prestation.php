@@ -7,7 +7,7 @@ $nombre = 0;
 $query = $connexion->prepare("SELECT * FROM prestation ");
 $query->execute();
 
-$liste = $query->fetchAll();
+$liste = $query->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['suppression'])) {
     $formulaire = $_POST['suppression'];
@@ -15,7 +15,7 @@ if (isset($_POST['suppression'])) {
     if (isset($formulaire['id'])) {
         try {
             $requete = $connexion->prepare('DELETE FROM prestation WHERE prestation_id = :id');
-            $requete->bindParam(':id', $formulaire['id']);
+            $requete->bindParam(':id', $formulaire['id'], PDO::PARAM_INT);
             $requete->execute();
 
             header('Location: view_prestation.php');
@@ -53,16 +53,15 @@ if (isset($_POST['suppression'])) {
         <tbody>
             <?php foreach ($liste as $element) { ?>
                 <tr>
-                    <td><?= $element['prestation_libelle'] ?></td>
-                    <td><?= $element['prestation_contenu'] ?></td>
-                    <td><?= $element['prestation_prix'] ?></td>
-                    <td><a href="update_prestation.php?prestation_id=<?= $element['prestation_id'] ?>">Modifier</>
-                    </td>
+                <td><?= htmlspecialchars($element['prestation_libelle'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($element['prestation_contenu'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($element['prestation_prix'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><a href="update_prestation.php?prestation_id=<?= htmlspecialchars($element['prestation_id'], ENT_QUOTES, 'UTF-8') ?>">Modifier</a></td>
                     <td>
-                        <form action="view_prestation.php" method="POST">
-                            <input type="hidden" name="suppression[id]" value="<?= $element['prestation_id'] ?>">
-                            <button type="submit" class="btn btn-danger">Supprimer</button>
-                        </form>
+                    <form action="view_prestation.php" method="POST">
+                        <input type="hidden" name="suppression[id]" value="<?= htmlspecialchars($element['prestation_id'], ENT_QUOTES, 'UTF-8') ?>">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
                     </td>
 
                     <form>

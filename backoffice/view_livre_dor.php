@@ -1,29 +1,28 @@
 <?php 
- require '../includes/connexion_bdd/connexion_bdd.php';
+require '../includes/connexion_bdd/connexion_bdd.php';
 
-
- $query = $connexion->prepare("SELECT * FROM livre_dor;");
+$query = $connexion->prepare("SELECT * FROM livre_dor;");
 $query->execute();
+$liste = $query->fetchAll(PDO::FETCH_ASSOC);
 
-$liste = $query->fetchAll();
 if (isset($_POST['suppression'])) {
     $formulaire = $_POST['suppression'];
 
     if (isset($formulaire['id'])) {
         try {
             $requete = $connexion->prepare('DELETE FROM livre_dor WHERE livre_id = :id');
-            $requete->bindParam(':id', $formulaire['id']);
+            $requete->bindParam(':id', $formulaire['id'], PDO::PARAM_INT);
             $requete->execute();
 
             header('Location: view_livre_dor.php');
+            exit();
         } catch (\Exception $exception) {
             var_dump($exception);
         }
     }
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,33 +33,30 @@ if (isset($_POST['suppression'])) {
     <title>livre_dor</title>
 </head>
 <body>
-    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour au menu principal</a>
-<table class="table" style="width: 70%">
-		<thead>
-			<tr class="table-primary">
-				<th>Nom du contact</th>
-				<th>Contenu du message</th>
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href="backoffice.php">Retour au menu principal</a>
+    <table class="table" style="width: 70%">
+        <thead>
+            <tr class="table-primary">
+                <th>Nom du contact</th>
+                <th>Contenu du message</th>
                 <th>Note</th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php foreach ($liste as $element) { ?>
-			<tr>
-				<td><?= $element['auteur_prenom'] ?></td>
-                <td><?= $element['livre_contenu'] ?></td>
-				<td><?= $element['auteur_note'] ?></td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($liste as $element) { ?>
+            <tr>
+                <td><?= htmlspecialchars($element['auteur_prenom'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($element['livre_contenu'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($element['auteur_note'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td>
-                    <form action="#" method="POST" name="suppression">
-                        <input type="hidden" name="suppression[id]" value="<?= $element['livre_id']?>">
-                        <button type="submit" class="btn btn-danger">Supprimer</button></td>
-                    <form>
+                    <form action="view_livre_dor.php" method="POST">
+                        <input type="hidden" name="suppression[id]" value="<?= htmlspecialchars($element['livre_id'], ENT_QUOTES, 'UTF-8') ?>">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
                 </td>
-			</tr>
-			<?php }?>
-		</tbody>
-</table>
-
-
-    
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </body>
 </html>

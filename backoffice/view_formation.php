@@ -55,7 +55,7 @@ if (isset($_POST['suppression'])) {
                     <form action="#" method="POST" name="suppression">
                         <input type="hidden" name="suppression[id]" value="<?= $element['formation_id']?>">
                         <button type="submit" class="btn btn-danger">Supprimer</button></td>
-                    <form>
+                    </form>
                 </td>
             </tr>
             <?php }?>

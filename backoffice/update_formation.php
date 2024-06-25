@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var_dump($stmt);
 
     if ($stmt->execute()) {
-        $success_message = "La formation a été modifiéE avec succès."; // Message de succès si la mise à jour réussit
+        $success_message = "La formation a été modifiée avec succès."; // Message de succès si la mise à jour réussit
     } else {
         $error_message = "Erreur lors de la modification de la formation."; // Message d'erreur en cas d'échec de la mise à jour
     }

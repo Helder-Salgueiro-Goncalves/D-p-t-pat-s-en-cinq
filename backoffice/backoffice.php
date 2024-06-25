@@ -28,13 +28,19 @@
         <div class="regroupement_page">
             <span class="regroupement_forma_presta">            
                 <a class="button-36" href="view_formation.php">Les Formations</a>
-                <a class="button-36" href="view_prestation.php">Les prestations</a>
+                <a class="button-36" href="update_details.php">A propos</a>
             </span>
+            
             <span class="regroupement_forma_presta"> 
-                <a class="button-36" href="view_livre_dor.php">Le livre d'or</a>
+            <a class="button-36" href="view_assistant_canin.php">Assistant canin</a>
                 <a class="button-36" href="view_galerie.php">La galerie de photo</a>
             </span>
-            <a class="button-36" href="update_details.php">Les informations</a>
+            <span class="regroupement_forma_presta">  
+            <a class="button-36" href="view_livre_dor.php">Le livre d'or</a>          
+            <a class="button-36" href="view_prestation.php">Les prestations</a>
+
+            </span>
+            
 
             <a href="deconnection.php" class="btn btn-danger">Se déconnecter</a>
         </div>

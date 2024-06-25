@@ -3,20 +3,18 @@ require '../includes/connexion_bdd/connexion_bdd.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $nom_prestation = $_POST['prestation_libelle'];
-    $contenu_prestation = $_POST['prestation_contenu'];
-    $prix_prestation = $_POST['prestation_prix'];
+    $assistant_canin_nom = $_POST['assistant_canin_nom'];
+    $assistant_canin_libelle = $_POST['assistant_canin_libelle'];
 
-    $stmt = $connexion->prepare("INSERT INTO prestation (prestation_libelle, prestation_contenu, prestation_prix) 
-                                VALUES (:nom, :contenu, :prix)");
-    $stmt->bindParam(':nom', $nom_prestation);
-    $stmt->bindParam(':contenu', $contenu_prestation);
-    $stmt->bindParam(':prix', $prix_prestation);
+    $stmt = $connexion->prepare("INSERT INTO assistant_canin (assistant_canin_nom, assistant_canin_libelle) 
+                                VALUES (:nom, :libelle)");
+    $stmt->bindParam(':nom', $assistant_canin_nom);
+    $stmt->bindParam(':libelle', $assistant_canin_libelle);
 
     if ($stmt->execute()) {
-        $success_message = "La prestation a été ajoutée avec succès."; 
+        $success_message = "L'assitant canin a été ajoutée avec succès."; 
     } else {
-        $error_message = "Erreur lors de l'ajout de la prestation.";
+        $error_message = "Erreur lors de l'ajout de l'assistant canin.";
     }
 }
 ?>
@@ -30,21 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="backoffice.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Ajouter une prestation</title>
+    <title>Ajouter un assistant canin</title>
 </head>
 
 <body>
-    <h1>Ajouter une prestation :</h1>
-    <form action="add_prestation.php" method="post">
-        <label for="prestation_libelle">Nom de la prestation :</label>
-        <input class="form-control"  type="text" name="prestation_libelle" required><br>
+    <h1>Ajouter un assistant canin :</h1>
+    <form action="add_assistant_canin.php" method="post">
+        <label for="assistant_libelle">Nom de l'assistant :</label>
+        <input class="form-control"  type="text" name="assistant_canin_libelle" required><br>
 
         <label for="prestation_contenu">Contenu de la prestation:</label>
         <input class="form-control" type="text" name="prestation_contenu" required><br>
 
-        <label for="prestation_prix">Prix de la prestation :<br>
-            Ne pas mettre le symbole "€".
-        </label>
+        <label for="prestation_prix">Prix de la prestation :</label>
         <input class="form-control" type="text" name="prestation_prix" required><br>
 
         <input class="btn btn-primary me-md-2" type="submit" value="Ajouter la prestation">

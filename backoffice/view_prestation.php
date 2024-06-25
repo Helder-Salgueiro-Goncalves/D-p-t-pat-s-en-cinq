@@ -39,6 +39,7 @@ if (isset($_POST['suppression'])) {
 </head>
 
 <body>
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour au menu principal</a>
 	<a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-primary me-md-2" href="add_prestation.php">Ajouter une prestation</a>
     <table class="table" style="width: 70%">
         <thead>
@@ -69,7 +70,6 @@ if (isset($_POST['suppression'])) {
             <?php } ?>
         </tbody>
     </table>
-    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour</a>
 
 
 </body>

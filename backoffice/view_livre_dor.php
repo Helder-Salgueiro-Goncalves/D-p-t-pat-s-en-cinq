@@ -34,6 +34,7 @@ if (isset($_POST['suppression'])) {
     <title>livre_dor</title>
 </head>
 <body>
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour au menu principal</a>
 <table class="table" style="width: 70%">
 		<thead>
 			<tr class="table-primary">
@@ -58,7 +59,6 @@ if (isset($_POST['suppression'])) {
 			<?php }?>
 		</tbody>
 </table>
-<a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour</a>
 
 
     

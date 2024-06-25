@@ -1,42 +1,5 @@
-<?php
-require '../includes/connexion_bdd/connexion_bdd.php';
-
-$details = null; // Initialise $prestation à null
-
-if (isset($_GET['a_propos_id'])) {
-    $a_propos_id_id = $_GET['a_propos_id'];
-
-    $stmt = $connexion->prepare("SELECT * FROM a_propos WHERE a_propos_id = :a_propos_id");
-    $stmt->bindParam(':a_propos_id', $details_id);
-    $stmt->execute();
-    $a_propos = $stmt->fetch();
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $profil = $_POST['a_propos_profil'];
-    $histoire = $_POST['a_propos_histoire'];
-    $profession = $_POST['a_propos_profession'];
-
-    $stmt = $connexion->prepare("UPDATE a_propos 
-    SET a_propos_profil = :profil, a_propos_histoire = :histoire, a_propos_profession = :profession
-    WHERE a_propos_id = :a_propos_id");
-    $stmt->bindParam(':a_propos_id', $a_propos_id);
-    $stmt->bindParam(':profil', $profil);
-    $stmt->bindParam(':histoire', $histoire);
-    $stmt->bindParam(':profession', $profession);
-
-    if ($stmt->execute()) {
-        $success_message = "Les informations ont été modifiée avec succès."; // Message de succès si la mise à jour réussit
-    } else {
-        $error_message = "Erreur lors de la modification des informations."; // Message d'erreur en cas d'échec de la mise à jour
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,31 +8,82 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
     <title>Modifier les informations</title>
 </head>
-
 <body>
     <h1>Modifier les informations :</h1>
-    <form action="update_details.php?a_propos_id=<?= $a_propos['a_propos_id'] ?? '' ?>" method="post">
-        <label for="a_propos_profil" class="form-label">Section "Qui suis-je ?" :</label>
-        <input class="form-control" type="text" name="a_propos_profil" value="<?= $a_propos['a_propos_profil'] ?? '' ?>" required><br>
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour au menu principal</a>
 
-        <label for="a_propos_profession" class="form-label">Section "Ce que je fais ?" :</label>
-        <input class="form-control" type="text" name="a_propos_profession" value="<?= $a_propos['a_propos_profession'] ?? '' ?>" required><br>
+    <?php
+    require '../includes/connexion_bdd/connexion_bdd.php'; // Inclusion de votre fichier de connexion à la base de données
 
-        <label for="a_propos_histoire" class="form-label">Section "Notre histoire" :</label>
-        <input class="form-control" type="text" name="a_propos_histoire" value="<?= $a_propos['a_propos_histoire'] ?? '' ?>" required><br>
+    $a_propos = null;
+    $success_message = $error_message = '';
 
+    try {
+        // Sélectionner toutes les lignes de la table a_propos
+        $stmt = $connexion->query("SELECT * FROM a_propos");
+        $a_propos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!$a_propos) {
+            echo "Aucune donnée trouvée dans la table a_propos.";
+        }
+
+        // Traitement du formulaire de mise à jour des données
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $profil = $_POST['a_propos_profil'];
+            $histoire = $_POST['a_propos_histoire'];
+            $profession = $_POST['a_propos_profession'];
+
+            // Mettre à jour toutes les lignes de la table a_propos (attention, c'est juste pour l'exemple)
+            $stmt = $connexion->prepare("UPDATE a_propos 
+                                         SET a_propos_profil = :profil, 
+                                             a_propos_histoire = :histoire, 
+                                             a_propos_profession = :profession");
+            $stmt->bindParam(':profil', $profil);
+            $stmt->bindParam(':histoire', $histoire);
+            $stmt->bindParam(':profession', $profession);
+
+            if ($stmt->execute()) {
+                $success_message = "Les informations ont été modifiées avec succès.";
+                // Recharger les données après la mise à jour (si nécessaire)
+                $stmt = $connexion->query("SELECT * FROM a_propos");
+                $a_propos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                $error_message = "Erreur lors de la modification des informations.";
+            }
+        }
+    } catch (PDOException $e) {
+        echo "Erreur : " . $e->getMessage();
+    }
+    ?>
+
+    <?php if ($a_propos) : ?>
+    <form action="update_details.php" method="post">
+        <?php foreach ($a_propos as $item) : ?>
+        <div class="mb-3">
+            <label for="a_propos_profil_<?= $item['a_propos_id'] ?>" class="form-label">Section "Qui suis-je ?" :</label>
+            <textarea class="form-control" id="a_propos_profil_<?= $item['a_propos_id'] ?>" name="a_propos_profil"><?= $item['a_propos_profil'] ?></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="a_propos_profession_<?= $item['a_propos_id'] ?>" class="form-label">Section "Ce que je fais ?" :</label>
+            <textarea class="form-control" id="a_propos_profession_<?= $item['a_propos_id'] ?>" name="a_propos_profession"><?= $item['a_propos_profession'] ?></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="a_propos_histoire_<?= $item['a_propos_id'] ?>" class="form-label">Section "Notre histoire" :</label>
+            <textarea class="form-control" id="a_propos_histoire_<?= $item['a_propos_id'] ?>" name="a_propos_histoire"><?= $item['a_propos_histoire'] ?></textarea>
+        </div>
+        <?php endforeach; ?>
         <input class="btn btn-primary me-md-2" type="submit" value="Modifier les informations">
     </form>
+    <?php else : ?>
+    <p>Aucune donnée trouvée dans la table a_propos.</p>
+    <?php endif; ?>
 
-    <?php if (isset($success_message)) : ?>
+    <?php if ($success_message) : ?>
         <p><?= $success_message ?></p>
-    <?php elseif (isset($error_message)) : ?>
+    <?php elseif ($error_message) : ?>
         <p><?= $error_message ?></p>
     <?php endif; ?>
     <br>
     <div class="button-container">
-        <a href="backoffice.php" class="btn btn-danger">Retour au menu principal</a>
     </div>
 </body>
-
-</html>

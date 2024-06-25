@@ -34,8 +34,9 @@ if (isset($_POST['suppression'])) {
     <title>Galerie</title>
 </head>
 
-<body>
-<a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-primary me-md-2" href="add_galerie.php">Ajouter une photo</a>
+<body>    
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour au menu principal</a>
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-primary me-md-2" href="add_galerie.php">Ajouter une photo</a>
 	<table class="table" style="width: 70%">
 		<thead>
 			<tr class="table-primary">
@@ -58,7 +59,6 @@ if (isset($_POST['suppression'])) {
 			<?php }?>
 		</tbody>
     </table>
-    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour</a>
 </body>
 </html>
 

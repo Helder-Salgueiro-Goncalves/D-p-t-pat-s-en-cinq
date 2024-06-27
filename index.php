@@ -108,23 +108,23 @@ $PartenaireAccueilDescription4 = $PartenaireAccueilDescription4['part_descriptif
 
 
 // Récupération du prenom de la partie 'COMMENTAIRE' de l'accueil
-$prenomCommentaireAccueil = $connexion->prepare('SELECT auteur_prenom FROM livre_dor ORDER BY livre_id DESC LIMIT 1');
+$prenomCommentaireAccueil = $connexion->prepare('SELECT auteur_prenom FROM livre_dor WHERE livre_archive = 1 ORDER BY livre_id DESC LIMIT 1');
 $prenomCommentaireAccueil->execute();
 $commentaireAccueilPrenom = $prenomCommentaireAccueil->fetch();
 $commentaireAccueilPrenom = $commentaireAccueilPrenom['auteur_prenom'];
 // Récupération du nom de la partie 'COMMENTAIRE' de l'accueil
-$nomCommentaireAccueil = $connexion->prepare('SELECT auteur_nom FROM livre_dor ORDER BY livre_id DESC LIMIT 1');
+$nomCommentaireAccueil = $connexion->prepare('SELECT auteur_nom FROM livre_dor WHERE livre_archive = 1 ORDER BY livre_id DESC LIMIT 1');
 $nomCommentaireAccueil->execute();
 $commentaireAccueilNom = $nomCommentaireAccueil->fetch();
 $commentaireAccueilNom = $commentaireAccueilNom['auteur_nom'];
 // Récupération de la description de la partie 'COMMENTAIRE' de l'accueil
-$descriptionCommentaireAccueil = $connexion->prepare('SELECT livre_contenu FROM livre_dor ORDER BY livre_id DESC LIMIT 1');
+$descriptionCommentaireAccueil = $connexion->prepare('SELECT livre_contenu FROM livre_dor WHERE livre_archive = 1 ORDER BY livre_id DESC LIMIT 1');
 $descriptionCommentaireAccueil->execute();
 $commentaireAccueildescription = $descriptionCommentaireAccueil->fetch();
 $commentaireAccueildescription = $commentaireAccueildescription['livre_contenu'];
 
 // Récuprération de la note 'COMMENTAIRE' pour afficher des étoiles
-$noteCommentaireAccueil = $connexion->prepare('SELECT auteur_note From livre_dor ORDER BY livre_id DESC LIMIT 1');
+$noteCommentaireAccueil = $connexion->prepare('SELECT auteur_note From livre_dor WHERE livre_archive = 1 ORDER BY livre_id DESC LIMIT 1');
 $noteCommentaireAccueil->execute();
 $commentaireNoteAccueil = $noteCommentaireAccueil -> fetch();
 $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
@@ -216,6 +216,12 @@ $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
 
         </div>
     </section>
+    <div class="video-container">
+        <div class="video">
+            <iframe width="50%" height="500" src="https://www.youtube.com/embed/1lVV65hazlc?si=HdBUFLTomVl3vRLP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    
     <section>
         <div class="partenaire">
             <h1>NOS PARTENAIRES</h1>
@@ -241,6 +247,11 @@ $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
         </div>
 
     </section>
+    <div class="video-container">
+        <div class="video">
+            <iframe width="50%" height="500" src="https://www.youtube.com/embed/SPgZveozD9g?si=o-JGdhrs5itp8sTZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
     <section>
         <div class="commentaire">
             <h1>COMMENTAIRES</h1>
@@ -264,13 +275,7 @@ $commentaireNoteAccueil = $commentaireNoteAccueil['auteur_note'];
 
         </div>
     </section>
-    <section>
-        <div class="video-container">
-            <div class="video">
-                <iframe width="50%" height="500" src="https://www.youtube.com/embed/SPgZveozD9g?si=o-JGdhrs5itp8sTZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
+    
     <section>
         <div class="localisation">
             <h1>LOCALISATION</h1>

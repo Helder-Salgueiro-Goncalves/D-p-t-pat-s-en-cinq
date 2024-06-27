@@ -45,9 +45,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
 <body>
     <section class="s1">
         <div class="menu-img">
-            <p class="txt-presentation">
-                AURORE DI FELICE
-            </p>
+            <p class="txt-presentation">AURORE<br>DI FELICE</p>
         </div>
     </section>
     <section class="s2">
@@ -64,7 +62,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
                     </div>
 
                     <div class="details-container">
-                        <h2>NOTRE HISTOIRE :</h2>
+                        <h2>RIKA NOTRE DOULOUREUSE HISTOIRE !</h2>
                         <p><?= $elementDeLaListe['a_propos_histoire'] ?></p>
                     </div>
         <?php } ?>
@@ -86,6 +84,7 @@ $libelle_assistant = $libelle_assistant['assistant_libelle'];
 
         <div class="details-container">
             <h2>MES FORMATIONS </h2>
+            <h3>Bénévole depuis 2011 au club de Senlis Titulaire du : </h3>
             <?php foreach ($listeFormation as $elementDeLaListeFormation) { ?>
 
                 <p> <?= $elementDeLaListeFormation['formation_libelle'] ?></p>

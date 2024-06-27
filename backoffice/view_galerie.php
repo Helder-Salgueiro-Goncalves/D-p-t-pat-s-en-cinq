@@ -1,9 +1,8 @@
 <?php 
- require '../includes/connexion_bdd/connexion_bdd.php';
+require '../includes/connexion_bdd/connexion_bdd.php';
 
-$query = $connexion->prepare("SELECT * FROM photo ");
+$query = $connexion->prepare("SELECT * FROM photo");
 $query->execute();
-
 $liste = $query->fetchAll();
 
 if (isset($_POST['suppression'])) {
@@ -16,12 +15,12 @@ if (isset($_POST['suppression'])) {
             $requete->execute();
 
             header('Location: view_galerie.php');
+            exit();
         } catch (\Exception $exception) {
             var_dump($exception);
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -34,31 +33,30 @@ if (isset($_POST['suppression'])) {
     <title>Galerie</title>
 </head>
 
-<body>
-<a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-primary me-md-2" href="add_galerie.php">Ajouter une photo</a>
-	<table class="table" style="width: 70%">
-		<thead>
-			<tr class="table-primary">
-				<th>Nom du chien</th>
-				<th>Photo du chien</th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php foreach ($liste as $element) { ?>
-			<tr>
-				<td><?= $element['photo_libelle'] ?></td>
-                <td><img style="width: 100px" src="../assets/<?= $element['photo_url']?>"></td>
+<body>    
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href="backoffice.php">Retour au menu principal</a>
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-primary me-md-2" href="add_galerie.php">Ajouter une photo</a>
+    <table class="table" style="width: 70%">
+        <thead>
+            <tr class="table-primary">
+                <th>Nom du chien</th>
+                <th>Photo du chien</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($liste as $element) { ?>
+            <tr>
+                <td><?= $element['photo_libelle'] ?></td>
+                <td><img style="width: 100px" src="../assets/<?= $element['photo_url'] ?>"></td>
                 <td>
-                    <form action="#" method="POST" name="suppression">
-                        <input type="hidden" name="suppression[id]" value="<?= $element['photo_id']?>">
-                        <button type="submit" class="btn btn-danger">Supprimer</button></td>
-                    <form>
+                    <form action="view_galerie.php" method="POST">
+                        <input type="hidden" name="suppression[id]" value="<?= $element['photo_id'] ?>">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
                 </td>
-			</tr>
-			<?php }?>
-		</tbody>
+            </tr>
+            <?php } ?>
+        </tbody>
     </table>
-    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour</a>
 </body>
 </html>
-

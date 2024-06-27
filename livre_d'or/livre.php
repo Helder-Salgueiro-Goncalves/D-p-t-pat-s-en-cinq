@@ -1,7 +1,7 @@
 <?php
 require '../includes/connexion_bdd/connexion_bdd.php';
 
-$query = $connexion->prepare("SELECT * FROM livre_dor");
+$query = $connexion->prepare("SELECT * FROM livre_dor WHERE livre_archive = 1 ");
 $query->execute();
 
 $liste = $query->fetchAll();
@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,15 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PATTE Z'EN CINQ</title>
 </head>
+
 <header>
     <?php require '../includes/header2/header.php' ?>
-
 </header>
 
 <body>
     <h1 class="livre-titre">Livre d'or</h1>
     <div class="comment-button">
-
         <div>
             <button id="openmodal" class="button-36">Laisser un commentaire</button>
         </div>
@@ -90,13 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="input-modal">
                     <textarea name="livre_contenu" class="input-modal" cols="30" rows="10" placeholder="Donnez nous votre avis"></textarea>
                 </div>
-
                 <div class="submit-modal">
                     <input class="modal-input" type="submit" value="Envoyer">
                 </div>
             </form>
-
-
             <button id="closemodal">Fermer</button>
         </dialog>
         <script>
@@ -111,13 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 modal.close()
             })
         </script>
-
-
-
     </div>
     <section>
         <div class="comment-box">
-
             <?php foreach ($liste as $elementDeLaListe) { ?>
                 <div class="comment-container">
                     <h2 class="comment-name"><?= $elementDeLaListe['auteur_prenom'] ?> <?= $elementDeLaListe['auteur_nom'] ?></h2>
@@ -135,12 +127,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p class="comment-text"><?= $elementDeLaListe['livre_contenu'] ?></p>
                 </div>
             <?php } ?>
-
-
         </div>
+        <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+        <div class="elfsight-app-202d2d58-a921-48c4-b1b0-a5a17582f2c1" data-elfsight-app-lazy></div>
+        <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+        <div class="elfsight-app-2f4fabf7-9f86-471c-a820-8dca262baf3f" data-elfsight-app-lazy></div>
     </section>
-
 </body>
+
 <footer>
     <?php require '../includes/footer2/footer.php' ?>
 </footer>

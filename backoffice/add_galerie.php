@@ -3,18 +3,44 @@ require '../includes/connexion_bdd/connexion_bdd.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $nom_photo = $_POST['photo_libelle'];
-    $url_photo = $_POST['photo_url'];
+    if(isset($_FILES['photo_url'])){
+        $tmpName = $_FILES['photo_url']['tmp_name'];
+        $name = $_FILES['photo_url']['name'];
+        $size = $_FILES['photo_url']['size'];
+        $error = $_FILES['photo_url']['error'];
 
-    $stmt = $connexion->prepare("INSERT INTO photo (photo_libelle, photo_url) 
-                                VALUES (:nom, :url)");
-    $stmt->bindParam(':nom', $nom_photo);
-    $stmt->bindParam(':url', $url_photo);
+        $tabExtension = explode('.', $name);
+        $extension = strtolower(end($tabExtension));
 
-    if ($stmt->execute()) {
-        $success_message = "La photo a été ajoutée dans la galerie avec succès."; 
-    } else {
-        $error_message = "Erreur lors de l'ajout de la photo dans la galerie.";
+        $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+        $maxSize = 40000000;
+
+        if(in_array($extension, $extensions) && $size <= $maxSize && $error == 0){
+            $uniqueName = uniqid('', true);
+            $file = $uniqueName.".".$extension;
+            move_uploaded_file($tmpName, '../assets/'.$file);
+        
+            $nom_photo = $_POST['photo_libelle'];
+        
+            $stmt = $connexion->prepare("INSERT INTO photo (photo_libelle, photo_url) 
+                                        VALUES (:nom, :url)");
+            $stmt->bindParam(':nom', $nom_photo);
+            $stmt->bindParam(':url', $file);
+        
+            if ($stmt->execute()) {
+                $success_message = "La photo a été ajoutée dans la galerie avec succès."; 
+            } else {
+                $error_message = "Erreur lors de l'ajout de la photo dans la galerie.";
+            }
+        } else {
+            if(!in_array($extension, $extensions)) {
+                $error_message = "Extension du fichier non autorisée.";
+            } else if($size > $maxSize) {
+                $error_message = "Le fichier est trop grand.";
+            } else if($error != 0) {
+                $error_message = "Erreur lors du téléchargement du fichier. Code d'erreur : " . $error;
+            }
+        }
     }
 }
 ?>
@@ -33,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <h1>Ajouter une photo dans la galerie :</h1>
-    <form action="add_galerie.php" method="post">
+    <form action="add_galerie.php" method="post" enctype="multipart/form-data">
         <label for="photo_libelle">Nom du chien :</label>
         <input class="form-control"  type="text" name="photo_libelle" required><br>
 

@@ -1,3 +1,13 @@
+<?php
+    session_start(); // Assurez-vous que cette ligne est en haut de votre fichier
+    require '../includes/connexion_bdd/connexion_bdd.php';
+    
+    if (empty($_SESSION['username'])){
+        header('Location: ../index.php');
+        exit(); // Assurez-vous d'appeler exit() après une redirection
+    };
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,16 +20,31 @@
 </head>
 
 <body>
-    <h1>Bienvenue dans votre BackOffice</h1>
-    <h2>Vous pouvez administrer ici les différentes partie du site PatteZen5</h2>
-    <a class="btn btn-primary me-md-2" class="btn" href="view_formation.php">Les Formations</a>
-    <a class="btn btn-primary me-md-2" href="view_prestation.php">Les prestations</a>
-    <a class="btn btn-primary me-md-2" href="view_livre_dor.php">Le livre d'or</a>
-    <a class="btn btn-primary me-md-2" href="view_galerie.php">La galerie de photo</a>
-    <a class="btn btn-primary me-md-2" href="update_details.php">Les informations</a>
+    <section class="regroupement_office">
+        <div class="regroupement_presentation_back">
+            <h1>Bienvenue dans votre BackOffice</h1>
+            <h2>Vous pouvez administrer ici les différentes partie du site PatteZen5</h2>
+        </div>
+        <div class="regroupement_page">
+            <span class="regroupement_forma_presta">            
+                <a class="button-36" href="view_formation.php">Les Formations</a>
+                <a class="button-36" href="update_details.php">A propos</a>
+            </span>
+            
+            <span class="regroupement_forma_presta"> 
+            <a class="button-36" href="view_assistant_canin.php">Assistant canin</a>
+                <a class="button-36" href="view_galerie.php">La galerie de photo</a>
+            </span>
+            <span class="regroupement_forma_presta">  
+            <a class="button-36" href="view_livre_dor.php">Le livre d'or</a>          
+            <a class="button-36" href="view_prestation.php">Les prestations</a>
 
+            </span>
+            
 
-    <a href="../accueil.php" class="btn btn-danger">Déconnexion</a>
+            <a href="deconnection.php" class="btn btn-danger">Se déconnecter</a>
+        </div>
+    </section>
 
 </body>
 

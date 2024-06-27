@@ -36,7 +36,7 @@ if (isset($_POST['suppression'])) {
     <title>Formation</title>
 </head>
 <body>
-
+    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour au menu principal</a>
     <a style="margin-top: 50px;margin-bottom: 20px;" href="add_formation.php " class="btn btn-primary me-md-2">Ajouter une formation</a>
 
     <table class="table" style="width: 70%">
@@ -55,15 +55,12 @@ if (isset($_POST['suppression'])) {
                     <form action="#" method="POST" name="suppression">
                         <input type="hidden" name="suppression[id]" value="<?= $element['formation_id']?>">
                         <button type="submit" class="btn btn-danger">Supprimer</button></td>
-                    <form>
+                    </form>
                 </td>
             </tr>
             <?php }?>
         </tbody>
     </table>
-    <a style="margin-top: 50px;margin-bottom: 20px;" class="btn btn-danger" href= "backoffice.php">Retour</a>
-
-
     
 </body>
 </html>
